@@ -54,7 +54,7 @@ function AppBody() {
   useEffect(() => {
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${
+        `https://api.openweathermap.org/data/2.5/weather?q=${
           search ? search : city
         }&appid=716536c610d959ddf3e0456b12b9bbf0`
       )

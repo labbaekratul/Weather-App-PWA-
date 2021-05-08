@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Styles/WeaklyChart.css";
-import sun from "./images/26.png";
-import cloud from "./images/23.png";
-import cloud2 from "./images/22.png";
-import snow from "./images/36.png";
-import light from "./images/30.png";
-import moon from "./images/19.png";
 import Carousel from "react-elastic-carousel";
 import axios from "axios";
 import rainstatus from "./images/rain.png";
@@ -27,7 +21,7 @@ function WeaklyChart({ search }) {
   useEffect(() => {
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/forecast?q=${
+        `https://api.openweathermap.org/data/2.5/forecast?q=${
           search ? search : cityName
         }&appid=716536c610d959ddf3e0456b12b9bbf0`
       )
@@ -35,8 +29,6 @@ function WeaklyChart({ search }) {
         setCardData(res.data.list);
       });
   }, [search]);
-
-  console.log(cardData[0]?.weather[0].main);
 
   const date = new Date(cardData[0]?.dt_txt);
   const date1 = new Date(cardData[5]?.dt_txt);
